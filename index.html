@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Миронова Юлия — Материалы по английскому для начальной школы</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Nunito', 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #fff0f8, #f0fdff);
+      color: #2c2c2c;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Блок "Обо мне" */
+    .about {
+      background: white;
+      border-radius: 24px;
+      padding: 30px;
+      margin-bottom: 40px;
+      box-shadow: 0 6px 20px rgba(123, 223, 252, 0.3);
+      display: flex;
+      align-items: flex-start;
+      gap: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: linear-gradient(90deg, #ff7eb3, #7bdffc);
+    }
+
+    .photo-placeholder {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: #f9f0f7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #e75480;
+      font-size: 12px;
+      text-align: center;
+      border: 3px solid #ffd6e7;
+      flex-shrink: 0;
+      margin-top: 10px;
+    }
+
+    /* Раскомментируйте, когда добавите фото:
+    .photo-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+    */
+
+    .about-content {
+      flex: 1;
+    }
+
+    .about-content h1 {
+      font-size: 2.1rem;
+      color: #e75480;
+      margin-bottom: 14px;
+    }
+
+    .about-content p {
+      margin-bottom: 16px;
+      font-size: 1.05rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #ff7eb3, #7bdffc);
+      color: white;
+      padding: 14px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.15rem;
+      box-shadow: 0 4px 12px rgba(123, 223, 252, 0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+      margin-top: 8px;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(123, 223, 252, 0.6);
+    }
+
+    /* Магазин */
+    .shop-section {
+      background: white;
+      border-radius: 24px;
+      padding: 30px;
+      margin-bottom: 40px;
+      box-shadow: 0 6px 20px rgba(255, 126, 179, 0.2);
+    }
+
+    .shop-section h2 {
+      font-size: 1.9rem;
+      color: #2c6f9e;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .book-series {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .series-item {
+      background: #fdf6fb;
+      border: 2px solid #ffd6e7;
+      border-radius: 18px;
+      padding: 20px;
+      width: 180px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .series-item:hover {
+      transform: scale(1.03);
+      border-color: #7bdffc;
+    }
+
+    .series-item h3 {
+      color: #e75480;
+      margin-bottom: 12px;
+      font-size: 1.2rem;
+    }
+
+    .series-item p {
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    /* Продукты */
+    .products {
+      margin-top: 20px;
+    }
+
+    .product {
+      background: #f8fcff;
+      padding: 16px;
+      border-radius: 14px;
+      margin: 12px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-left: 4px solid #7bdffc;
+    }
+
+    .preview-btn,
+    .buy-btn {
+      padding: 8px 16px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.95rem;
+    }
+
+    .preview-btn {
+      background: #f0f0f0;
+      color: #888;
+      cursor: not-allowed;
+    }
+
+    .buy-btn {
+      background: linear-gradient(135deg, #ff7eb3, #7bdffc);
+      color: white;
+    }
+
+    /* Отзывы */
+    .reviews-section {
+      background: white;
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: 0 6px 20px rgba(255, 126, 179, 0.2);
+    }
+
+    .reviews-section h2 {
+      font-size: 1.9rem;
+      color: #2c6f9e;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .reviews {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .review {
+      background: #fff8fc;
+      padding: 20px;
+      border-radius: 18px;
+      flex: 1 1 280px;
+      border-left: 4px solid #ff7eb3;
+    }
+
+    .review p {
+      font-style: italic;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .review .author {
+      font-weight: bold;
+      color: #e75480;
+      text-align: right;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      color: #888;
+      font-size: 0.9rem;
+      padding-bottom: 20px;
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .about {
+        flex-direction: column;
+        text-align: center;
+      }
+      .photo-placeholder {
+        margin-top: 0;
+      }
+      .about-content p,
+      .about-content h1 {
+        text-align: center;
+      }
+      .book-series {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Блок "Обо мне" -->
+    <section class="about">
+      <div class="about-content">
+        <h1>Миронова Юлия</h1>
+        <p>
+          Преподаю английский детям уже более 10 лет. Имею опыт работы в государственной школе и диплом МПГУ им. Ленина по направлению «Теория и методика преподавания иностранных языков и культур».
+        </p>
+        <p>
+          Все мои материалы я тестирую на собственных уроках — они действительно работают, вызывают интерес у детей и экономят часы подготовки.
+        </p>
+        <p>
+          Моя цель — не просто облегчить жизнь учителям, но и помочь каждому ребёнку влюбиться в английский язык.
+        </p>
+        <a href="https://t.me/julia_english_methodist" class="cta-button">Перейти к материалам</a>
+      </div>
+      <div class="photo-placeholder">
+        <!-- ЗАМЕНИТЕ НА СВОЁ ФОТО -->
+        <!-- Пример:
+        <img src="my-photo.jpg" alt="Миронова Юлия">
+        -->
+        Ваше фото<br>(180×180 px)
+      </div>
+    </section>
+
+    <!-- Магазин -->
+    <section class="shop-section">
+      <h2>Материалы по учебникам</h2>
+      <div class="book-series">
+        <div class="series-item">
+          <h3>Spotlight 2</h3>
+          <p>Презентации, листы, игры</p>
+        </div>
+        <div class="series-item">
+          <h3>Spotlight 3</h3>
+          <p>Полный комплект на год</p>
+        </div>
+        <div class="series-item">
+          <h3>Spotlight 4</h3>
+          <p>Грамматика + лексика</p>
+        </div>
+        <div class="series-item">
+          <h3>Academy Stars Starter</h3>
+          <p>Для начинающих</p>
+        </div>
+        <div class="series-item">
+          <h3>Academy Stars 1</h3>
+          <p>Игровые задания</p>
+        </div>
+        <div class="series-item">
+          <h3>Academy Stars 2–3</h3>
+          <p>Комплекты и квесты</p>
+        </div>
+      </div>
+
+      <div class="products">
+        <div class="product">
+          <span>Презентация к уроку (Spotlight 2, Unit 3)</span>
+          <div>
+            <a href="#" class="preview-btn" title="Предпросмотр ограничен">👁️ Предпросмотр</a>
+            <a href="https://t.me/julia_english_methodist" class="buy-btn">Купить за 150 ₽</a>
+          </div>
+        </div>
+        <div class="product">
+          <span>Полный пак презентаций на год (Spotlight 3)</span>
+          <div>
+            <a href="#" class="preview-btn">👁️ Предпросмотр</a>
+            <a href="https://t.me/julia_english_methodist" class="buy-btn">Купить за 2500 ₽</a>
+          </div>
+        </div>
+        <div class="product">
+          <span>Рабочие листы по лексике (Academy Stars 1)</span>
+          <div>
+            <a href="#" class="preview-btn">👁️ Предпросмотр</a>
+            <a href="https://t.me/julia_english_methodist" class="buy-btn">Купить за 400 ₽</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Отзывы -->
+    <section class="reviews-section">
+      <h2>Отзывы учителей</h2>
+      <div class="reviews">
+        <div class="review">
+          <p>«Купила полный комплект Spotlight 2 — дети ждут уроков как праздника! Спасибо за труд и душу!»</p>
+          <div class="author">— Анастасия, учитель английского, г. Самара</div>
+        </div>
+        <div class="review">
+          <p>«После того как начала использовать материалы Юлии, родители сами просят дополнительные задания. Это что-то!»</p>
+          <div class="author">— Ирина, 2 класс, Москва</div>
+        </div>
+        <div class="review">
+          <p>«Наконец-то нашла автора, который понимает, как устроен детский мозг. Игры — просто волшебство!»</p>
+          <div class="author">— Екатерина, методист</div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      &copy; 2025 Миронова Юлия — Все материалы авторские и защищены
+    </footer>
+  </div>
+</body>
+</html>
